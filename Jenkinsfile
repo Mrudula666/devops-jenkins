@@ -1,4 +1,4 @@
-pipeline{
+node{
     stage('SCM Checkout'){
         git 'https://github.com/Mrudula666/devops-jenkins'
     }
