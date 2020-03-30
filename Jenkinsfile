@@ -3,8 +3,10 @@ node{
         git 'https://github.com/Mrudula666/devops-jenkins'
     }
     stage('JDK'){
-        def JAVA_HOME = tool name: 'Java', type: 'jdk'
-        bat "${JAVA_HOME}"
+    env.JAVA_HOME="${tool name: 'Java', type: 'jdk'}"
+    env.PATH="${env.JAVA_HOME}/bin:${env.PATH}"
+    bat 'java -version'
+}
     }
     stage('Maven-Build'){
 
