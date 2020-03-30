@@ -3,9 +3,8 @@ pipeline{
         git 'https://github.com/Mrudula666/devops-jenkins'
     }
     stage('JDK'){
-        tools{
-           jdk "jdk-1.8.0_241"
-        }
+        def JAVA_HOME = tool name: 'Java', type: 'jdk'
+        bat "${JAVA_HOME}"
     }
     stage('Maven-Build'){
 
