@@ -4,11 +4,11 @@ node{
     }
     stage('Java-Home'){
         def JAVA_HOME = tool name: 'Java', type: 'jdk'
-        sh "${JAVA_HOME}/bin"
+        bat "${JAVA_HOME}/bin"
     }
     stage('Maven-Build'){
 
                 def mvnHome= tool name: 'maven 3.6.3', type: 'maven'
-                sh "${mvnHome}/bin/mvn package"
+                bat "${mvnHome}/bin/mvn package"
     }
 }
