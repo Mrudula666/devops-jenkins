@@ -6,7 +6,8 @@ node{
     }
     stage('Maven-Build'){
             steps {
-                sh 'mvn clean package'
+                def mvnHome= tool name: 'maven 3.6.3', type: 'maven'
+                sh "${mvnHome}/bin/mvn package"
             }
         }
 }
