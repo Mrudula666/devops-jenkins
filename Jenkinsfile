@@ -6,7 +6,6 @@ node{
     env.JAVA_HOME="${tool name: 'Java', type: 'jdk'}"
     env.PATH="${env.JAVA_HOME}/bin:${env.PATH}"
     bat 'java -version'
-}
     }
     stage('Maven-Build'){
 
