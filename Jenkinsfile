@@ -13,8 +13,10 @@ node{
                 bat "${mvnHome}/bin/mvn package"
     }
     stage('SonarQube-Analysis'){
-        def sonarHome = tool name: 'sonar-scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
-        bat "mvn org.sonarsource.scanner.maven:sonar-maven-plugin:2.9.0.887:sonar"
+        def mvnHome= tool name: 'maven 3.6.3', type: 'maven'
+        withSonarQubeEnv('SonarQube'){
+            bat "${mvnHome}/bin/mvn sonar:sonar"
+        }
     }
    
 }
