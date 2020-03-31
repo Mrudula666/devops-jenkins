@@ -12,5 +12,9 @@ node{
                 def mvnHome= tool name: 'maven 3.6.3', type: 'maven'
                 bat "${mvnHome}/bin/mvn package"
     }
+    stage('SonarQube-Analysis'){
+        def sonarHome = tool name: 'sonar-scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+        bat "mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.3.0.603:sonar"
+    }
    
 }
