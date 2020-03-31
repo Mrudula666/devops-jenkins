@@ -23,12 +23,6 @@
 			<plugin>
 				<groupId>org.mortbay.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
-				<configuration>
-					<httpConnector>
-						<host>localhost</host>
-						<port>9090</port>
-					</httpConnector>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>
@@ -40,6 +34,13 @@
 			<artifactId>servlet-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.sonarsource.scanner.maven/sonar-maven-plugin -->
+		<dependency>
+			<groupId>org.sonarsource.scanner.maven</groupId>
+			<artifactId>sonar-maven-plugin</artifactId>
+			<version>3.7.0.1746</version>
+		</dependency>
+
 
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
