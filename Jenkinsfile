@@ -14,7 +14,7 @@ node{
     }
     stage('SonarQube-Analysis'){
         def sonarHome = tool name: 'sonar-scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
-        bat "mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.3.0.603:sonar"
+        bat "mvn org.sonarsource.scanner.maven:sonar-maven-plugin:2.9.0.887:sonar"
     }
    
 }
