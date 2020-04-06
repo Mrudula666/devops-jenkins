@@ -17,7 +17,7 @@ node{
             bat "mvn sonar:sonar"
     }
     stage('deploy to tomcat'){
-       deploy adapters: [tomcat9(credentialsId: 'd8c95aac-8556-4d88-affe-6fffd75b20a3', path: '', url: 'http://localhost:9190/webapp')], contextPath: 'webapp', onFailure: false, war: '**/*.war'
+       deploy adapters: [tomcat9(credentialsId: 'd8c95aac-8556-4d88-affe-6fffd75b20a3', path: '', url: 'http://localhost:9190/webapp')], contextPath: 'webapp', war: '**/*.war'
     }
    
 }
