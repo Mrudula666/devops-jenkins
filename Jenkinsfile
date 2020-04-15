@@ -16,8 +16,14 @@ node{
         def sonarQubeHome = tool name: 'sonar-scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
             bat "mvn sonar:sonar"
     }
-    stage('deploy to tomcat'){
-       deploy adapters: [tomcat9(credentialsId: 'd8c95aac-8556-4d88-affe-6fffd75b20a3', path: '', url: 'http://localhost:9190/webapp')], contextPath: 'webapp', war: '**/*.war'
+    stage('Build Docker image'){
+        sh 'docker build -t mrudulaa666/tomcat-deploy:1.0.0'
+    }
+    stage('Deploy Image'){
+          withCredentials([usernamePassword(credentialsId: 'docker', passwordVariable: 'pwd', usernameVariable: 'docker')]) {
+              sh "docker login -u ${env.docker} -p ${env.pwd}"
+              sh 'docker push mrudulaa666/tomcat-deploy1.0.0'
+                }
     }
    
 }
