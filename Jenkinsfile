@@ -10,7 +10,7 @@ node{
     stage('Maven-Build'){
 
                 def mvnHome= tool name: 'maven 3.6.3', type: 'maven'
-                bat "${mvnHome}/bin/mvn package"
+                bat "${mvnHome}/bin/mvn clean install"
     }
     stage('SonarQube-Analysis'){
         def sonarQubeHome = tool name: 'sonar-scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
