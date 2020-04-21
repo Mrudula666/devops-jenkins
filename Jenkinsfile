@@ -21,7 +21,7 @@ node{
                 bat "${mvnHome}/bin/mvn test -DsuiteXMLFile=testng.xml"
     }
      stage ('building docker image') {
-      				bat 'docker build . -t mrudulaa666/maven-image:latest'
+      				bat 'docker build -t mrudulaa666/maven-image:latest .'
 				 
 			 
 		 }
