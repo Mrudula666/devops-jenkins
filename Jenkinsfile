@@ -20,5 +20,12 @@ node{
        def mvnHome= tool name: 'maven 3.6.3', type: 'maven'
                 bat "${mvnHome}/bin/mvn test -DsuiteXMLFile=testng.xml"
     }
+    stage('Docker push image'){
+        withCredentials([usernamePassword(credentialsId: 'docker', passwordVariable: 'docker-password', usernameVariable: 'docker-hub')]) {
+            sh "docker login -u ${env.docker-hub} -p ${env.docker-password}"
+            sh "docker push mrudulaa666/maven-image:latest"
+}
+    
+    }
    
 }
