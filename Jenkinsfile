@@ -17,7 +17,7 @@ node{
                 sh "${mvnHome}/bin/mvn test -DsuiteXMLFile=testng.xml"
     }
      stage ('building docker image') {
-      				sh 'docker build -t mrudulaa666/maven-image:latest .'
+      				sh 'docker build . -t mrudulaa666/maven-image:latest'
 				 
 			 
 		 }
