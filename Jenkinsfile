@@ -30,7 +30,12 @@ node{
             bat "docker login -u ${env.docker-hub} -p ${env.docker-password}"
             bat "docker push mrudulaa666/maven-image:latest"
 }
-    
-    }
+     stage('kubernetes deploy') {
+			 steps {
+			 kubernetesDeploy(configs: 'deploy.yml',kubeconfigId: 'kube',enableConfigSubstitution: true)
+			 kubernetesDeploy(configs: 'service.yml',kubeconfigId: 'kube',enableConfigSubstitution: true)
+			 }
+				 
+		 }
    
 }
