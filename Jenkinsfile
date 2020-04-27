@@ -30,5 +30,6 @@ node{
             bat "docker login -u ${env.docker-hub} -p ${env.docker-password}"
             bat "docker push mrudulaa666/maven-image:latest"
 }
+    }
    
 }
