@@ -13,7 +13,7 @@ node{
                 sh "${mvnHome}/bin/mvn clean install"
     }
     stage('Maven Run'){
-       def mvnHome= tool name: 'maven 3.6.3', type: 'maven'
+       def mvnHome= tool name: 'MAVEN_HOME', type: 'maven'
                 sh "${mvnHome}/bin/mvn test -DsuiteXMLFile=testng.xml"
     }
      stage ('building docker image') {
