@@ -22,10 +22,10 @@ node{
 			 
 		 }
     stage('Docker push image'){
-        withCredentials([usernamePassword(credentialsId: 'docker', passwordVariable: 'docker-password', usernameVariable: 'docker-hub')]) {
+        withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'docker-password', usernameVariable: 'docker-hub')]) {
             sh "docker login -u ${env.docker-hub} -p ${env.docker-password}"
             sh "docker push mrudulaa666/maven-image:latest"
-}
+	}
     }
    
 }
