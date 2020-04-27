@@ -3,18 +3,14 @@ node{
         git 'https://github.com/Mrudula666/devops-jenkins'
     }
     stage('JDK'){
-    env.JAVA_HOME="${tool name: 'Java', type: 'jdk'}"
+    env.JAVA_HOME="${tool name: 'JAVA_HOME', type: 'jdk'}"
     env.PATH="${env.JAVA_HOME}/bin:${env.PATH}"
     sh 'java -version'
     }
     stage('Maven-Build'){
 
-                def mvnHome= tool name: 'maven 3.6.3', type: 'maven'
+                def mvnHome= tool name: 'MAVEN_HOME', type: 'maven'
                 bat "${mvnHome}/bin/mvn clean install"
-    }
-    stage('SonarQube-Analysis'){
-        def sonarQubeHome = tool name: 'sonar-scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
-            bat "mvn sonar:sonar"
     }
     stage('Maven Run'){
        def mvnHome= tool name: 'maven 3.6.3', type: 'maven'
