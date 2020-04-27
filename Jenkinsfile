@@ -33,7 +33,7 @@ node{
      stage('kubernetes deploy') {
 			 steps {
 			 kubernetesDeploy(configs: 'deploy.yml',kubeconfigId: 'kube',enableConfigSubstitution: true)
-			 kubernetesDeploy(configs: 'service.yml',kubeconfigId: 'kube',enableConfigSubstitution: true)
+			 kubernetesDeploy(configs: 'service1.yml',kubeconfigId: 'kube',enableConfigSubstitution: true)
 			 }
 				 
 		 }
